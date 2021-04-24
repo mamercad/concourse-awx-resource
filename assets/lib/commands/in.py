@@ -3,7 +3,7 @@
 import json
 import sys
 
-_stdin = ''.join(sys.stdin.readlines())
+_stdin = "".join(sys.stdin.readlines())
 _in = json.loads(_stdin)
 
 _out = {

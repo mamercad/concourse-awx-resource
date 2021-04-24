@@ -5,7 +5,7 @@ import sys
 from awx import AWX
 from pprint import pprint
 
-_stdin = ''.join(sys.stdin.readlines())
+_stdin = "".join(sys.stdin.readlines())
 _in = json.loads(_stdin)
 
 awx = AWX(_in)
