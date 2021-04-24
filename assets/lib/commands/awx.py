@@ -2,8 +2,6 @@
 
 import logging
 import os
-import json
-from pprint import pprint
 import requests
 import time
 
