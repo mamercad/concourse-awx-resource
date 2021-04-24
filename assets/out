@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# The out script is passed a path to the directory containing the build's
+# full set of sources as command line argument $1, and is given on stdin
+# the configured params and the resource's source configuration.
+
+set -euo pipefail
+$(dirname $0)/lib/commands/out.py $1 <&0

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# The in script is passed a destination directory as command line
+# argument $1, and is given on stdin the configured source and a
+# precise version of the resource to fetch.
+
+set -euo pipefail
+$(dirname $0)/lib/commands/in.py $1 <&0
