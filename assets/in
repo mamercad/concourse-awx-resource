@@ -5,4 +5,4 @@
 # precise version of the resource to fetch.
 
 set -euo pipefail
-$(dirname $0)/lib/commands/in.py $1 <&0
+"$(dirname "$0")"/lib/commands/in.py "$1" <&0

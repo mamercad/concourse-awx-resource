@@ -5,4 +5,4 @@
 # the configured params and the resource's source configuration.
 
 set -euo pipefail
-$(dirname $0)/lib/commands/out.py $1 <&0
+"$(dirname "$0")"/lib/commands/out.py "$1" <&0
