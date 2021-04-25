@@ -5,6 +5,24 @@ Docker images are named `quay.io/mamercad/concourse-awx-resource:<version>` and 
 
 Currently, the resource supports launching [AWX Job Templates](https://docs.ansible.com/ansible-tower/latest/html/userguide/job_templates.html) and [Workflow Job Templates](https://docs.ansible.com/ansible-tower/latest/html/userguide/workflow_templates.html).
 
+There's a [Makefile](Makefile) which may help:
+
+```bash
+❯ make help
+help:  Shows this help
+build:  Build the Docker images
+push:  Push the Docker images
+run:  Run the (local) Docker image
+ping:  Test AWX connectivity and access
+validate:  Validate the pipeline
+set:  Set the pipeline
+unpause:  Unpause the pipeline
+launch:  Launch the pipeline
+shipit: build push set launch  Build, push, set and launch
+```
+
+There's also a [infra/Makefile](infra/Makefile) which may help for local development, see the [infra/README.md](infra/README.md).
+
 ## Resource Configuration
 
 `awx.endpoint`: The API endpoint of the AWX instance. Follows the same pattern as the AWX API or CLI, e.g., `https://your.tower.tld`. Note the lack of the trailing lash, and, don't provide `/api/v2`.
