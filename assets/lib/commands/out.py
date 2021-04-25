@@ -4,19 +4,27 @@ import json
 import sys
 from awx import AWX
 
-_stdin = "".join(sys.stdin.readlines())
-_in = json.loads(_stdin)
 
-awx = AWX(_in)
-job_results = awx.launch_job_template()
+def main():
+    _stdin = "".join(sys.stdin.readlines())
+    _in = json.loads(_stdin)
 
-metadata = []
-for k in sorted(job_results.keys()):
-    metadata.append({"name": k, "value": json.dumps(job_results[k])})
+    awx = AWX(_in)
+    results = awx.launch()
 
-_out = {
-    "version": {},
-    "metadata": metadata,
-}
+    metadata = []
+    for k in sorted(results.keys()):
+        metadata.append({"name": k, "value": json.dumps(results[k])})
 
-print(json.dumps(_out))
+    _out = {
+        "version": {},
+        "metadata": metadata,
+    }
+
+    print(json.dumps(_out))
+    if results.get("status", "failed") != "successful":
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
