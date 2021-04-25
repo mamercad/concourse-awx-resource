@@ -36,4 +36,8 @@ jobs:
             type: workflow_job_templates
             id: ((TOWER_WORKFLOW_JOB_TEMPLATES))
             debug: false
-  ```
+```
+
+## License
+
+MIT © Mark Mercado <<mamercado@gmail.com>>
