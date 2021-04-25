@@ -1,0 +1,8 @@
+export TOWER_OAUTH_TOKEN="<tower_oauth_token>"
+export TOWER_HOST="https://<tower_host>"
+export TOWER_JOB_TEMPLATES="1337"
+export CONCOURSE_TARGET="tutorial"
+export CONCOURSE_EXTERNAL_URL="http://localhost:8080"
+export QUAY_TAG="quay.io/mamercad/concourse-awx-resource"
+export LOCAL_TAG="registry:5000/concourse-awx-resource"
+export VERSION="$(cat VERSION)"
