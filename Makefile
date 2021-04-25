@@ -5,21 +5,22 @@ TOWER_OAUTH_TOKEN := ${TOWER_OAUTH_TOKEN}
 TOWER_JOB_TEMPLATES := ${TOWER_JOB_TEMPLATES}
 CONCOURSE_TARGET := tutorial
 CONCOURSE_URL := http://localhost:8080
+VERSION := $(shell cat VERSION)
 
 .PHONY: docker-build docker-push docker-run concourse-up \
 		concourse-login pipeline-validate pipeline-set \
 		pipeline-unpause shipit
 
 docker-build:
-	@docker build -t $(QUAY_TAG) .
-	@docker build -t $(LOCAL_TAG) .
+	@docker build -t $(QUAY_TAG):$(VERSION) .
+	@docker build -t $(LOCAL_TAG):$(VERSION) .
 
 docker-push:
-	@docker push $(QUAY_TAG)
-	@docker push $(LOCAL_TAG)
+	@docker push $(QUAY_TAG):$(VERSION)
+	@docker push $(LOCAL_TAG):$(VERSION)
 
 docker-run:
-	@docker run --rm -it $(LOCAL_TAG) /bin/bash
+	@docker run --rm -it $(LOCAL_TAG):$(VERSION) /bin/bash
 
 concourse-up:
 	@docker-compose up -d

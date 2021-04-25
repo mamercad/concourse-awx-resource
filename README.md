@@ -1,7 +1,7 @@
 # Concourse AWX Resource
 
 A [Concource CI](https://concourse-ci.org/) custom resource for [Ansible AWX](https://github.com/ansible/awx).
-Docker images are named `quay.io/mamercad/concourse-awx-resource:latest` and can be viewed [here](https://quay.io/repository/mamercad/concourse-awx-resource), the [Dockerfile](Dockerfile) is in the root of this repository.
+Docker images are named `quay.io/mamercad/concourse-awx-resource:<version>` and can be viewed [here](https://quay.io/repository/mamercad/concourse-awx-resource), the [Dockerfile](Dockerfile) is in the root of this repository.
 
 Currently, the resource supports launching [AWX Job Templates](https://docs.ansible.com/ansible-tower/latest/html/userguide/job_templates.html) and [Workflow Job Templates](https://docs.ansible.com/ansible-tower/latest/html/userguide/workflow_templates.html).
 
