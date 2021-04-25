@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import logging
 import os
 import requests
@@ -113,7 +114,7 @@ def main():
     }
     a = AWX(args)
     a.ping()
-    j = a.launch()
+    print(json.dumps(a.launch()))
 
 
 if __name__ == "__main__":
