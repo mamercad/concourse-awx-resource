@@ -38,6 +38,11 @@ jobs:
             debug: false
 ```
 
+## Screenshot
+
+All of the job results will be returned, here's a screenshot to give you a feel:
+
+![Screenshot of Concourse AWX Resource](screenshot.png)
 ## License
 
 MIT © Mark Mercado <<mamercado@gmail.com>>
