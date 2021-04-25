@@ -35,6 +35,7 @@ resource_types:
     type: docker-image
     source:
       repository: quay.io/mamercad/concourse-awx-resource
+      version: 0.0.1
 
 resources:
   - name: awx
