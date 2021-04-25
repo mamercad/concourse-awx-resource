@@ -1,8 +1,31 @@
 # Concourse AWX Resource
 
 A [Concource CI](https://concourse-ci.org/) custom resource for [Ansible AWX](https://github.com/ansible/awx).
-Docker images are located [here](https://quay.io/repository/mamercad/concourse-awx-resource), the `Dockerfile` is in the root of this repository.
-Currently, the resource supports [AWX Job Templates](https://docs.ansible.com/ansible-tower/latest/html/userguide/job_templates.html) and [Workflow Job Templates](https://docs.ansible.com/ansible-tower/latest/html/userguide/workflow_templates.html).
+Docker images are named `quay.io/mamercad/concourse-awx-resource:latest` and can be viewed [here](https://quay.io/repository/mamercad/concourse-awx-resource), the [Dockerfile](Dockerfile) is in the root of this repository.
+
+Currently, the resource supports launching [AWX Job Templates](https://docs.ansible.com/ansible-tower/latest/html/userguide/job_templates.html) and [Workflow Job Templates](https://docs.ansible.com/ansible-tower/latest/html/userguide/workflow_templates.html).
+
+## Resource Configuration
+
+`awx.endpoint`: The API endpoint of the AWX instance. Follows the same pattern as the AWX API or CLI, e.g., `https://your.tower.tld`. Note the lack of the trailing lash, and, don't provide `/api/v2`.
+
+`awx.auth`: The authentication context, both `Bearer <oauth_token>` and `Basic <base64_user_colon_pass>` should work.
+
+## Resource Behavior
+
+`check`: No-op.
+
+`in`: No-op.
+
+`out`: Launches either the job template or the workflow job template, polling it until completion.
+
+### Parameters
+
+`awx.type`: (Required) Currently supports either `job_templates` and `workflow_job_templates`. The name is plural, but, the behavior is singular (keeping parity with the API terminology).
+
+`awx.id`: (Required) The ID of the job template or workflow job template to launch.
+
+`awx.debug`: (Optional, default is `false`) Controls whether or not to enable additional debugging information.
 
 ## Example Pipeline
 
