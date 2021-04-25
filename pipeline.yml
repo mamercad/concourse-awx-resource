@@ -4,21 +4,32 @@ resource_types:
     type: docker-image
     source:
       repository: quay.io/mamercad/concourse-awx-resource
-      # repository: registry:5000/concourse-awx-resource
-      # insecure_registries: ["registry:5000"]
+  - name: awx-workflow-resource-local
+    type: docker-image
+    source:
+      repository: registry:5000/concourse-awx-resource
+      insecure_registries: ["registry:5000"]
 
 resources:
+  # - name: awx
+  #   type: awx-workflow-resource
+  #   source:
+  #     awx:
+  #       endpoint: ((TOWER_HOST))
+  #       auth: Bearer ((TOWER_OAUTH_TOKEN))
   - name: awx
-    type: awx-workflow-resource
+    type: awx-workflow-resource-local
     source:
       awx:
         endpoint: ((TOWER_HOST))
         auth: Bearer ((TOWER_OAUTH_TOKEN))
 
 jobs:
-- name: awx-workflow
+- name: awx-job
   plan:
     - put: awx
       params:
         awx:
-          workflow: 9
+          type: job_templates
+          id: ((TOWER_JOB_TEMPLATES))
+          debug: false
