@@ -25,11 +25,11 @@ resources:
         auth: Bearer ((TOWER_OAUTH_TOKEN))
 
 jobs:
-- name: awx-job
-  plan:
-    - put: awx
-      params:
-        awx:
-          type: job_templates
-          id: ((TOWER_JOB_TEMPLATES))
-          debug: false
+  - name: awx-job
+    plan:
+      - put: awx
+        params:
+          awx:
+            type: job_templates
+            id: ((TOWER_JOB_TEMPLATES))
+            debug: false
