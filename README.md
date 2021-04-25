@@ -1,5 +1,8 @@
 # Concourse AWX Resource
 
+[![Shell](https://github.com/mamercad/concourse-awx-resource/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/mamercad/concourse-awx-resource/actions/workflows/shellcheck.yml)
+[![Python](https://github.com/mamercad/concourse-awx-resource/actions/workflows/python.yml/badge.svg)](https://github.com/mamercad/concourse-awx-resource/actions/workflows/python.yml)
+
 A [Concource CI](https://concourse-ci.org/) custom resource for [Ansible AWX](https://github.com/ansible/awx).
 Docker images are named `quay.io/mamercad/concourse-awx-resource:<version>` and can be viewed [here](https://quay.io/repository/mamercad/concourse-awx-resource), the [Dockerfile](Dockerfile) is in the root of this repository.
 
