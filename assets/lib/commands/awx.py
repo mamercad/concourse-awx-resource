@@ -15,6 +15,7 @@ class AWX:
         self.source = args["source"]
         self.params = args["params"]
         self.endpoint = self.source["awx"]["endpoint"]
+        logging.info("AWX endpoint is {0}".format(self.endpoint))
         self.headers = {
             "Content-type": "application/json",
             "Authorization": self.source["awx"]["auth"],
