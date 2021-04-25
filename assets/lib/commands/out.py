@@ -16,10 +16,7 @@ def main():
     for k in sorted(results.keys()):
         metadata.append({"name": k, "value": json.dumps(results[k])})
 
-    _out = {
-        "version": {},
-        "metadata": metadata,
-    }
+    _out = {"version": {}, "metadata": metadata}
 
     print(json.dumps(_out))
     if results.get("status", "failed") != "successful":

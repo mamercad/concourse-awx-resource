@@ -107,7 +107,7 @@ def main():
             "awx": {
                 "endpoint": os.environ.get("TOWER_HOST"),
                 "auth": "Bearer {0}".format(os.environ.get("TOWER_OAUTH_TOKEN")),
-            },
+            }
         },
         "params": {"awx": {"job_templates": os.environ.get("TOWER_JOB_TEMPLATES")}},
     }
